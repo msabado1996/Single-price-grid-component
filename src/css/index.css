@@ -1,5 +1,6 @@
 :root{
     --Cyan: hsl(179, 62%, 43%);
+    --Cyan2: rgba(42, 178, 175, 0.8);
     --bright-yellow: hsl(71, 73%, 54%);
     --light-gray: hsl(204, 43%, 93%);
     --grayish-blue: hsl(218, 22%, 67%);
@@ -13,149 +14,138 @@
 
 html{
     scroll-behavior: smooth;
+    font-size: 1rem;
 }
 
 body{
+  font-family: 'Karla', sans-serif;
     background-color: var(--light-gray);
-    letter-spacing: 0.1em;
-}
-
-.price{
-    padding: 40px 20px;
-    
-}
-
-.price-container{
-    
-    border-radius: 10px;
     display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
+    justify-items: center;
 }
 
-.price-container > div{
-    padding: 40px 20px;
-    min-height: 350px;
-    max-width: 1500px;
-    box-shadow: rgba(22, 22, 56, 0.2) 0px 7px 7px 0px;
+.grid {
+    margin: 8vh 5vw;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    box-shadow: 3px 10px 10px 0px var(--grayish-blue);
 }
-
-.price-header{
+header {
     background-color: white;
-    border-radius: 10px 10px 0 0;
+    padding: 40px 26px;
 }
 
-.price-header h3{
-   color: var(--grayish-blue);
-   font-size: 1.5em;
-   font-weight: 500;
+h1 {
+    color: var(--Cyan);
+    letter-spacing: 1px;
+    font-size: 150%;
 }
-
-.price-header p{
+header h2 {
+    padding-block: 30px;
     color: var(--bright-yellow);
-    margin: 30px 0;
+    font-size: 110%;
 }
 
-.price-header span{
+header p {
+    line-height: 1.9;
     color: var(--grayish-blue);
+    font-size: 90%;
 }
 
-
-
-.price-footer-one{
+section.subscription {
     background-color: var(--Cyan);
+    padding: 30px 26px;
+    color: white;
+    display: grid;
 }
 
-.price-footer-one h3{
-    color: white;
-    font-size: 1.5em;
+.subscription h2 {
     font-weight: 500;
 }
 
-.access p{
-    color: white;
-    margin-bottom: 50px;
-
-}
-
-.dollar{
+.subscription .flex {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 20px;
+    column-gap: 5vw;
+    margin-block: 37.5px;
+    font-size: 110%;
+    width: max-content;
+
 }
 
-.dollar p{
-    margin: 10px 0;
-    font-size: 2.3em;
-    color: white;
+.flex p:first-child {
+    font-size: 200%;
 }
 
-.dollar span{
-    font-size: 1em;
+.flex span {
+    color: var(--light-gray);
+    font-weight: 100;
+}
+
+.flex p:last-child {
+    font-weight: 100;
     color: var(--light-gray);
 }
 
-.price-footer-one button{
-    color: white;
+.subscription button {
+    padding-block: 2vh;
     background-color: var(--bright-yellow);
     border: none;
-    width: 100%;
-    padding: 20px 0;
-    border-radius: 10px;
-    font-size: 1em;
-    font-weight: 400;
-    box-shadow: rgba(170, 170, 170, 0.2) 0px 7px 7px 0px;
-}
-
-.price-footer-two{
-    background-color: var(--grayish-blue);
-    border-radius:  0 0 10px 10px;
-    padding-right: 80px !important;
     color: white;
+    font-size: 110%;
+    font-family: 'Karla', sans-serif;
+    border-radius: 20px;
 }
 
-.price-footer-two h4{
-    margin-bottom: 35px;
-    font-size: 1.5em;
+.whyUs {
+    color: white;
+    background-color: var(--Cyan2);
+    padding: 30px 26px;
 }
 
-.price-footer-two p{
-    line-height: 1.5em;
+.whyUs h2 {
+    margin-block-end: 20px;
 }
 
-@media screen and (min-width: 950px) {
-    .price-container{
+.whyUs pre {
+    color: var(--light-gray);
+    line-height: 1.6;
+    width: max-content;
+}
+
+
+
+@media (min-width:1243px) {
+
+    .grid {
         display: grid;
-        grid-template-rows: auto auto; /* Two rows with automatic sizing */
         grid-template-columns: 1fr 1fr;
-       
+        grid-template-rows: repeat(2, auto);
+        margin: 18vh 26vw;
     }
 
-    .price-container > div{
-        min-height: 320px;
+    header {
+        grid-column: 1/-1;
+        padding-inline: 40px 2vw;
+        font-size: 120%;
     }
 
-    .price-header{
-        grid-row: 1;
-        grid-column: 1 / span 2; /* Span two columns */
-       
+    main {
+        grid-column: 1/-1;
+        display: flex;
     }
 
-    .price-footer-one{
-        border-radius:  0 0  0 10px;  
-    }
-
-    .price-footer-two{
-        border-radius:  0 0 10px 0;  
-    }
-
-    .price-container{
-       width: 60%;
-       margin: auto;
+    section.subscription {
+        flex-grow: 1;
     } 
-}
 
-footer{
-    text-align: center;
+    .subscription .flex {
+        display: grid;
+    }
+
+    section.whyUs {
+        flex-grow: 1;
+
+    } 
 }
